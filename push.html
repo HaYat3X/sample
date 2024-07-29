@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Push.js Notification Example</title>
+    <!-- Push.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.12/push.min.js"></script>
+  </head>
+  <body>
+    <button id="notifyBtn">通知を送る</button>
+
+    <script>
+      document
+        .getElementById("notifyBtn")
+        .addEventListener("click", function () {
+          Push.create("こんにちは！", {
+            body: "これはPush.jsを使用したデスクトップ通知の例です。",
+            icon: "icon.png", // アイコンのURLを指定（省略可能）
+            timeout: 4000, // 通知が消えるまでの時間（ミリ秒）
+            onClick: function () {
+              window.focus();
+              this.close();
+            },
+          });
+        });
+    </script>
+  </body>
+</html>
